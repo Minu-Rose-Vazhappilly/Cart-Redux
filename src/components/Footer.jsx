@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
-        <div className='grid text-white grid-cols-4 bg-violet-600 p-7 w-full fixed bottom-0'>
+        <div className='grid text-white grid-cols-4 bg-violet-600 p-7 w-full bottom-0 mt-5'>
             <div>
                 <p className='font-bold'><i className="fa-solid fa-truck me-2"></i>Daily cart</p>
                 <p className='text-sm'>Designed and built with all the love in the world by the luminar team with help of our contributors </p>
@@ -11,9 +11,9 @@ const Footer = () => {
                 <p className='text-sm'>Currently v5.3.2.</p>
             </div>
             <div><p className='font-bold'>Links</p>
-                <p className='text-sm'><Link>Landing Page</Link></p>
-                <p className='text-sm'><Link>Home Page</Link></p>
-                <p className='text-sm'><Link>Watch History Page</Link></p>
+                <p className='text-sm'><Link to={'/'}>Home Page</Link></p>
+                <p className='text-sm'><Link to={'/cart'}>Cart Page</Link></p>
+                <p className='text-sm'><Link to={'/wishlist'}>Wishlist Page</Link></p>
             </div>
             <div><p className='font-bold'> Guides</p>
                 <p className='text-sm'>React</p>
