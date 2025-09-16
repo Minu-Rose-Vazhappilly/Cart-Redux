@@ -3,9 +3,11 @@ import { Link, useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToWishlist } from '../redux/slices/wishlistSlice'
+import { addToCart } from '../redux/slices/cartSlice'
 
 function View() {
     const userWishlist = useSelector(state=>state.wishlistReducer)
+    const userCart = useSelector(state=>state.cartReducer)
     const dispatch = useDispatch()
     const { id } = useParams()
     console.log(id);
@@ -24,6 +26,14 @@ function View() {
         }
     }
 
+    const handleCart = (product)=>{
+        dispatch(addToCart(product))
+        const existingProduct = userCart?.find(item=>item.id == product.id)
+        if(existingProduct){
+            alert("Product Updated Successfully")
+        }
+    }
+
     return (
         <div>
             <Header />
@@ -34,8 +44,8 @@ function View() {
                             <img height={'250px'} src={product?.thumbnail} alt="" />
                         </div>
                         <div className='flex justify-between'>
-                            <Link to={'/wishlist'} className='bg-violet-900 p-1 rounded text-white mt-3 inline-block' onClick={handleAddToWishlist}>ADD TO WISHLIST</Link>
-                            <Link to={'/cart'} className='bg-blue-500 p-1 rounded text-white mt-3 inline-block'>ADD TO CART</Link>
+                            <button  className='bg-violet-900 p-1 rounded text-white mt-3 inline-block' onClick={handleAddToWishlist}>ADD TO WISHLIST</button>
+                            <button  className='bg-blue-500 p-1 rounded text-white mt-3 inline-block' onClick={handleCart}>ADD TO CART</button>
                         </div>
                     </div>
                     <div >
