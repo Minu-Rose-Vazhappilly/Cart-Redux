@@ -26,7 +26,7 @@ function View() {
         }
     }
 
-    const handleCart = (product)=>{
+    const handleCart = ()=>{
         dispatch(addToCart(product))
         const existingProduct = userCart?.find(item=>item.id == product.id)
         if(existingProduct){
